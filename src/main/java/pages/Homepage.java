@@ -8,5 +8,4 @@ public class Homepage extends HeaderFragment {
         super(driver);
     }
 
-
 }

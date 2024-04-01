@@ -3,10 +3,8 @@ package common;
 import com.github.javafaker.Faker;
 import com.google.common.io.Files;
 import io.qameta.allure.Attachment;
-//import lombok.SneakyThrows;
+import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -81,13 +79,13 @@ public class CommonActions extends BasePage {
         }
     }
 
-//    @SneakyThrows
-//    @Attachment(value = "Page screenshot", type = "image/png")
-//    public static byte[] captureScreen(WebDriver driver) {
-//        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//        FileUtils.copyFile(screenshot, new File("./target/allure-results/screenshots//" + screenshot.getName()));
-//        return Files.toByteArray(screenshot);
-//    }
+    @SneakyThrows
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public static byte[] captureScreen(WebDriver driver) {
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(screenshot, new File("./target/allure-results/screenshots//" + screenshot.getName()));
+        return Files.toByteArray(screenshot);
+    }
 
     public static void hover(WebDriver driver, WebElement element) {
         Actions actions = new Actions(driver);

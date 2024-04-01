@@ -1,7 +1,6 @@
 package fragments;
 
 import common.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
@@ -13,15 +12,16 @@ public class HeaderFragment extends BasePage {
     public HeaderFragment(WebDriver driver) {
         super(driver);
     }
-    public void acceptCookiesAndSignIn() {
+
+    public void acceptCookies() {
         try {
-            waitVisibilityOfElement(COOKIES_ACCEPTED).click();
+            waitClickabilityOfElement(COOKIES_ACCEPTED).click();
         } catch (NoSuchElementException e) {
             System.out.println("Cookies are undetected");
         }
     }
 
     public void clickSignIn() {
-        waitVisibilityOfElement(SIGN_IN).click();
+        waitClickabilityOfElement(SIGN_IN).click();
     }
 }

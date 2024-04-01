@@ -28,7 +28,7 @@ public class BasePage {
         try {
             return wait.until(visibilityOfElementLocated(By.xpath(locator)));
         } catch (WebDriverException e) {
-            System.out.println("No visibility of element: " + locator);
+            logger.warn("No visibility of element: " + locator);
             return null;
         }
     }

@@ -8,7 +8,7 @@
 
     <test name="All tests">
         <classes>
-<!--            <class name="tests.cartTests.BaseCartTest" > </class>-->
+            <class name="tests.SignInValidationTest" > </class>
         </classes>
     </test>
 
