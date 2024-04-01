@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="AllTestSuite">
+
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+    </listeners>
+
+    <test name="All tests">
+        <classes>
+<!--            <class name="tests.cartTests.BaseCartTest" > </class>-->
+        </classes>
+    </test>
+
+</suite>
