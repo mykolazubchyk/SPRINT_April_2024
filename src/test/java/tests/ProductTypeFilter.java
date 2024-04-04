@@ -12,7 +12,9 @@ public class ProductTypeFilter extends BaseTest {
 
         womanPage.getHeaderFragment().acceptCookies();
         womanPage.getHeaderFragment().chooseCategoryDropdown("Women");
+        womanPage.getFilterFragment().waitUntilSpinnerDisappear();
         womanPage.getFilterFragment().chooseCategory("Shoes");
+        womanPage.getFilterFragment().waitUntilSpinnerDisappear();
 
         for (String name : womanPage.getItemCatalogFragment().getListOfAllItemsName()) {
             Assert.assertTrue(name.contains("Shoes"), "Item name does not contain chosen category");
