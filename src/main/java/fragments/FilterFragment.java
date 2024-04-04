@@ -31,6 +31,7 @@ public class FilterFragment extends BasePage {
             logger.warn("Element is still visible: " + locator);
         }
     }
+
     public void waitUntilSpinnerDisappear() {
         try {
             waitUntilElementInvisible(By.xpath(LOADING_SPINNER));
