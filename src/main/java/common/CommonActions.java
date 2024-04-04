@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static org.openqa.selenium.Keys.*;
+
 public class CommonActions extends BasePage {
 
     public static final Faker faker = new Faker();
@@ -52,9 +54,9 @@ public class CommonActions extends BasePage {
         element.click();
 
         if (isMac) {
-            actions.keyDown(Keys.COMMAND).sendKeys("a").pause(200).keyUp(Keys.COMMAND).sendKeys(Keys.DELETE).perform();
+            actions.keyDown(COMMAND).sendKeys("a").pause(200).keyUp(COMMAND).sendKeys(DELETE).perform();
         } else {
-            actions.keyDown(Keys.CONTROL).sendKeys("a").pause(200).keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
+            actions.keyDown(CONTROL).sendKeys("a").pause(200).keyUp(CONTROL).sendKeys(DELETE).perform();
         }
     }
 
@@ -83,7 +85,7 @@ public class CommonActions extends BasePage {
     @Attachment(value = "Page screenshot", type = "image/png")
     public static byte[] captureScreen(WebDriver driver) {
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenshot, new File("./target/allure-results/screenshots//" + screenshot.getName()));
+        FileUtils.copyFile(screenshot, new File("./target/allure-results//" + screenshot.getName()));
         return Files.toByteArray(screenshot);
     }
 
