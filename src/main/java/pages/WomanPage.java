@@ -12,7 +12,9 @@ public class WomanPage extends BasePage {
     private HeaderFragment headerFragment;
 
     public WomanPage (WebDriver driver){
+
         super(driver);
+        
         this.filterFragment = new FilterFragment(driver);
         this.itemCatalogFragment = new ItemCatalogFragment(driver);
         this.headerFragment = new HeaderFragment(driver);

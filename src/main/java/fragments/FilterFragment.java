@@ -12,7 +12,7 @@ public class FilterFragment extends BasePage {
         super(driver);
     }
 
-    private static final String LOADING_SPINNER = "//div[@class='activity-indicator']";
+    static final String LOADING_SPINNER = "//div[@class='activity-indicator']";
     private static final String CATEGORY = "//div[@class='filter-options']//span[normalize-space(text())='%s']";
     private static final String PRODUCT_TYPE = "//span[normalize-space(text())='%s']";
 

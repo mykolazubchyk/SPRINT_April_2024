@@ -1,10 +1,12 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.WomanPage;
 
 public class ProductTypeFilter extends BaseTest {
+    @BeforeMethod
 
     @Test(description = "SPRIN-10:Product Type Filter ")
     public void verifyProductTypeFilter() throws InterruptedException {
