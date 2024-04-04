@@ -9,8 +9,9 @@ public class FooterFragment extends BasePage {
     private static final String SIGN_UP_FIELD = id("newsletterInputField");
     private static final String SUBMIT_BUTTON = id("newsletterSubmitCTA");
     private static final String ERROR_MESSAGE = id("signupForm-response");
-    private static final String TITLE = "//*[@id='footerRow1ContentContainer']//h4";
-    private static final String SING_UP_RECOMMENDATION = "//*[@id='footerRow1ContentContainer']//div/p";
+    private static final String SIGN_UP_CONTAINER= id("footerRow1ContentContainer");
+    private static final String TITLE = SIGN_UP_CONTAINER + "//h4";
+    private static final String SING_UP_RECOMMENDATION = SIGN_UP_CONTAINER + "//div/p";
     private static final String ACCEPT_PRIVACY_POLICY_CHECKBOX = id("newsletterCheckField");
     private static final String PRIVACY_POLICY_TEXT = "//*[@class='text-wrapper']";
     private static final String PRIVACY_POLICY_LINK = PRIVACY_POLICY_TEXT + "/a";

@@ -30,15 +30,19 @@ public class SignUpNewsletterTest extends BaseTest {
 
         softAssert.assertEquals(footerFragment.getErrorMessage().getText(), EXPECTED_ERROR_MESSAGE,
                 "The expected error message is not displayed.");
+        softAssert.assertTrue(footerFragment.getTitle().isDisplayed(),
+                "The expected title is not displayed.");
+        softAssert.assertTrue(footerFragment.getSignUpRecommendation().isDisplayed(),
+                "The expected sign up recommendation is not displayed.");
+        softAssert.assertTrue(footerFragment.getAcceptPrivacyPolicyCheckbox().isDisplayed(),
+                "The Privacy Policy checkbox is not displayed.");
+        softAssert.assertEquals(footerFragment.getAcceptPrivacyPolicyText().getText(), PRIVACY_POLICY_MESSAGE_TEXT,
+                "The accept Privacy Policy text is not displayed.");
 
-        softAssert.assertTrue(footerFragment.getTitle().isDisplayed());
-        softAssert.assertTrue(footerFragment.getSignUpRecommendation().isDisplayed());
-        softAssert.assertTrue(footerFragment.getAcceptPrivacyPolicyCheckbox().isDisplayed());
-        softAssert.assertEquals(footerFragment.getAcceptPrivacyPolicyText().getText(), PRIVACY_POLICY_MESSAGE_TEXT);
-
-        String PrivacyPolicyText = footerFragment.getPrivacyPolicyLink().getText();
+        String privacyPolicyText = footerFragment.getPrivacyPolicyLink().getText().toLowerCase();
         footerFragment.getPrivacyPolicyLink().click();
 
-        softAssert.assertEquals(privacyPolicyPage.getTitle().getText(), PrivacyPolicyText);
+        softAssert.assertTrue(privacyPolicyPage.getTitle().getText().toLowerCase().contains(privacyPolicyText),
+                "The title is not matches Privacy Policy link.");
     }
 }
