@@ -2,26 +2,26 @@ package fragments;
 
 import common.BasePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static common.CommonActions.getListOfString;
+
 public class ItemCatalogFragment extends BasePage {
+
+    private static final String LIST_OF_ITEM_NAMES = "//span[@class='product-block-name-wrapper']";
 
     public ItemCatalogFragment(WebDriver driver) {
         super(driver);
     }
 
-    private static final String LIST_OF_ITEM_NAMES = "//span[@class='product-block-name-wrapper']";
-
     public List<String> getListOfAllItemsName() {
-        List<String> list = new ArrayList<>();
-
-        for (WebElement name : waitVisibilityOfElements(LIST_OF_ITEM_NAMES)) {
-             list.add(name.getText());
+        try {
+            Thread.sleep(2000);
+            return getListOfString(waitVisibilityOfElements(LIST_OF_ITEM_NAMES));
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException(e);
         }
-
-        return list;
     }
 }

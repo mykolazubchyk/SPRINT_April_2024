@@ -8,7 +8,7 @@ public class HeaderFragment extends BasePage {
 
     private static final String SIGN_IN = "//div[contains(@class,'cart-container')]//a[@data-open='utilityNavModal7']";
     private static final String COOKIES_ACCEPTED = "//button[@id='onetrust-accept-btn-handler']";
-    private static final String WOMEN_CATEGORY = "//ul[@role='menubar']/li/a[@href='/shop/en-gb/vans-gb/women-collection']";
+    private static final String CATEGORY_DROPDOWN = "//a[normalize-space(text())='%s']";
 
     public HeaderFragment(WebDriver driver) {
         super(driver);
@@ -26,7 +26,7 @@ public class HeaderFragment extends BasePage {
         waitClickabilityOfElement(SIGN_IN).click();
     }
 
-    public void chooseWomenCategory() {
-        waitClickabilityOfElement(WOMEN_CATEGORY).click();
+    public void chooseCategoryDropdown(String category) {
+        waitClickabilityOfElement(String.format(CATEGORY_DROPDOWN, category)).click();
     }
 }

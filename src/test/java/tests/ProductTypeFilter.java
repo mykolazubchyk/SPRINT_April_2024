@@ -1,25 +1,27 @@
 package tests;
 
-import fragments.FilterFragment;
-import fragments.HeaderFragment;
-import fragments.ItemCatalogFragment;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.WomanPage;
 
 public class ProductTypeFilter extends BaseTest {
 
-    @Test
-    public void verifyProductTypeFilter() {
-        HeaderFragment headerFragment = new HeaderFragment(driver);
-        FilterFragment filterFragment = new FilterFragment(driver);
-        ItemCatalogFragment itemCatalogFragment = new ItemCatalogFragment(driver);
+    @Test(description = "SPRIN-10:Product Type Filter ")
+    public void verifyProductTypeFilter() throws InterruptedException {
+        WomanPage womanPage = new WomanPage(driver);
 
-        headerFragment.acceptCookies();
-        headerFragment.chooseWomenCategory();
-        filterFragment.chooseShoesCategory();
+        womanPage.getHeaderFragment().acceptCookies();
+        womanPage.getHeaderFragment().chooseCategoryDropdown("Women");
+        womanPage.getFilterFragment().chooseCategory("Shoes");
 
-        for (String name : itemCatalogFragment.getListOfAllItemsName()) {
-            Assert.assertTrue(name.contains("Shoes"));
+        for (String name : womanPage.getItemCatalogFragment().getListOfAllItemsName()) {
+            Assert.assertTrue(name.contains("Shoes"), "Item name does not contain chosen category");
+        }
+
+        womanPage.getFilterFragment().chooseProductType("Slip-ons");
+
+        for (String name : womanPage.getItemCatalogFragment().getListOfAllItemsName()) {
+            Assert.assertTrue(name.contains("Slip-On"), "Item name does not contain chosen category");
         }
     }
 }
