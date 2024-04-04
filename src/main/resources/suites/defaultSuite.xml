@@ -9,6 +9,8 @@
     <test name="All tests">
         <classes>
             <class name="tests.SignInValidationTest" > </class>
+            <class name="tests.SignUpNewsletterTest" > </class>
+            <class name="tests.EmptySidebarCartTest" > </class>
         </classes>
     </test>
 

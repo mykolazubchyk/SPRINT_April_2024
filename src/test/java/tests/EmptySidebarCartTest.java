@@ -2,14 +2,15 @@ package tests;
 
 import fragments.HeaderFragment;
 import fragments.SidebarCartFragment;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class EmptySidebarCartTest extends BaseTest {
 
     public static HeaderFragment headerFragment;
     public static SidebarCartFragment sidebarCartFragment;
+    SoftAssert softAssert = new SoftAssert();
 
     @BeforeMethod
     public void beforeTest() {
@@ -18,14 +19,13 @@ public class EmptySidebarCartTest extends BaseTest {
     }
 
     @Test(description = "SPRIN-12 Empty Sidebar Cart Verification")
-
     public void emptySidebarCart() {
         sidebarCartFragment.clickCartIcon();
 
         int itemsCount = sidebarCartFragment.getQuantityCount();
-        Assert.assertEquals(itemsCount, 0, "The number of items in the cart sidebar is not zero");
+        softAssert.assertEquals(itemsCount, 0, "The number of items in the cart sidebar is not zero");
 
-        Assert.assertTrue(sidebarCartFragment.isCheckoutButtonAbsent(), "Checkout button is present in empty cart");
-        Assert.assertTrue(sidebarCartFragment.isSubtotalFieldAbsent(), "Subtotal field is present in empty cart");
+        softAssert.assertTrue(sidebarCartFragment.isCheckoutButtonAbsent(), "Checkout button is present in empty cart");
+        softAssert.assertTrue(sidebarCartFragment.isSubtotalFieldAbsent(), "Subtotal field is present in empty cart");
     }
 }

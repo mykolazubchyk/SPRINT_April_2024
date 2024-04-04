@@ -69,6 +69,10 @@ public class BasePage {
         }
     }
 
+    public static String id(String webElementId) {
+        return String.format("//*[@id='%s']", webElementId);
+    }
+
     protected boolean isElementEnabled(String locator) {
         return driver.findElement(By.xpath(locator)).isEnabled();
     }
