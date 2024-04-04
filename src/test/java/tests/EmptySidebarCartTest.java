@@ -20,10 +20,6 @@ public class EmptySidebarCartTest extends BaseTest {
     @Test(description = "SPRIN-12 Empty Sidebar Cart Verification")
 
     public void emptySidebarCart() {
-        HeaderFragment headerFragment = new HeaderFragment(driver);
-        SidebarCartFragment sidebarCartFragment = new SidebarCartFragment(driver);
-
-        headerFragment.acceptCookies();
         sidebarCartFragment.clickCartIcon();
 
         int itemsCount = sidebarCartFragment.getQuantityCount();

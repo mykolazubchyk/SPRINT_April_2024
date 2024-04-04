@@ -1,5 +1,6 @@
 package tests;
 
+import fragments.HeaderFragment;
 import listeners.TestListener;
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
@@ -28,6 +29,10 @@ public abstract class BaseTest {
         openUrl();
 
         logger.info("Driver setup completed");
+
+        HeaderFragment headerFragment = new HeaderFragment(driver);
+
+        headerFragment.acceptCookies();
     }
 
     @AfterMethod
