@@ -18,7 +18,6 @@ public class HeaderFragment extends BasePage {
         try {
             waitClickabilityOfElement(COOKIES_ACCEPTED).click();
         } catch (NoSuchElementException e) {
-            System.out.println("Cookies are undetected");
         }
     }
 
