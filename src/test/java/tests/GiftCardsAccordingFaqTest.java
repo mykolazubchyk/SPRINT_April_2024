@@ -1,38 +1,50 @@
 package tests;
 
-import common.CommonActions;
-import fragments.FAQFragment;
+
 import fragments.HeaderFragment;
-import io.qameta.allure.Description;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+import pages.GiftCardsPage;
 
 import java.util.List;
 
 public class GiftCardsAccordingFaqTest extends BaseTest {
 
+    private static GiftCardsPage giftCardsPage;
+    private static HeaderFragment headerFragment;
+    SoftAssert softAssert = new SoftAssert();
 
-    @Test(description = "Accordion FAQ Gift Cards page")
-    @Description("SPRIN-79")
+    @BeforeMethod
+    private void initTest() {
+        giftCardsPage = new GiftCardsPage(driver);
+        headerFragment = new HeaderFragment(driver);
+    }
 
+    @Test(description = "SPRIN-79: Accordion FAQ Gift Cards page")
     public void testGiftCardsAccordingFaq() {
-        HeaderFragment headerFragment = new HeaderFragment(driver);
-        FAQFragment faqFragment = new FAQFragment(driver);
+        headerFragment.getToGiftCardsButton().click();
 
-        headerFragment.acceptCookies();
-        headerFragment.clickGiftCards();
-        CommonActions.scrollToElement(driver, faqFragment.getFrequentlyAskedQuestionsElement());
+        softAssert.assertTrue(giftCardsPage.getFrequentlyAskedQuestionsElement().isDisplayed(),
+                "FAQ section is not displayed on the page");
 
-        List<WebElement> faqFragments = faqFragment.getFAQFragments();
+        List<WebElement> faqPanels = giftCardsPage.getGiftCardsFaqPanels();
+        List<WebElement> faqExtendedContents = giftCardsPage.getGiftCardsFaqExtendedContents();
 
-        if (!faqFragments.isEmpty()) {
-            for (WebElement question : faqFragments) {
-                question.click();
+        for (WebElement content : faqExtendedContents) {
+            softAssert.assertFalse(content.isDisplayed(), "FAQ panels are not collapsed");
+        }
+        for (int i = 0; i < faqPanels.size(); i++) {
+            WebElement panel = faqPanels.get(i);
+            softAssert.assertFalse(panel.getText().isEmpty(), "FAQ panel is empty");
 
-                Assert.assertFalse(question.getText().isEmpty(), "Content of the question is not displayed");
+            giftCardsPage.scrollToSpecificGiftCardFaqPanel(i);
+            panel.click();
+            WebElement content = faqExtendedContents.get(i);
 
-            }
+            softAssert.assertTrue(content.isDisplayed() && content.getText().length() >= 3,
+                    "Content of the question is too short or not displayed");
         }
     }
 }
