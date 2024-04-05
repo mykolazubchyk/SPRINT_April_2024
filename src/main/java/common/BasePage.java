@@ -34,7 +34,6 @@ public class BasePage {
         }
     }
 
-
     protected WebElement waitClickabilityOfElement(String locator) {
         try {
             return wait.until(elementToBeClickable(By.xpath(locator)));

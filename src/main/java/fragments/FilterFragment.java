@@ -5,7 +5,6 @@ import common.CommonActions;
 import org.openqa.selenium.WebDriver;
 import static common.CommonActions.*;
 
-
 public class FilterFragment extends BasePage {
 
     public FilterFragment(WebDriver driver) {

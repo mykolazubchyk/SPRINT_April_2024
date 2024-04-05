@@ -16,7 +16,6 @@ import java.util.Random;
 
 public class CommonActions extends BasePage {
 
-
     public static final Faker faker = new Faker();
 
     protected CommonActions(WebDriver driver) {
@@ -84,8 +83,7 @@ public class CommonActions extends BasePage {
     @Attachment(value = "Page screenshot", type = "image/png")
     public static byte[] captureScreen(WebDriver driver) {
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenshot, new File("./target/allure-results/screenshots//" + screenshot.getName()));
-        return Files.toByteArray(screenshot);
+        FileUtils.copyFile(screenshot, new File("./target/allure-results//" + screenshot.getName()));        return Files.toByteArray(screenshot);
     }
 
     public static void hover(WebDriver driver, WebElement element) {
