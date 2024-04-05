@@ -12,6 +12,7 @@
             <class name="tests.SignUpNewsletterTest" > </class>
             <class name="tests.EmptySidebarCartTest" > </class>
             <class name="tests.GiftCardsAccordingFaqTest" > </class>
+            <class name="tests.SearchFieldTest" > </class>
         </classes>
     </test>
 
