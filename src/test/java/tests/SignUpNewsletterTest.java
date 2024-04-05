@@ -15,7 +15,6 @@ public class SignUpNewsletterTest extends BaseTest {
     private static FooterFragment footerFragment;
     private static PrivacyPolicyPage privacyPolicyPage;
 
-    SoftAssert softAssert = new SoftAssert();
     @BeforeMethod
     private void initTest() {
         footerFragment = new FooterFragment(driver);
