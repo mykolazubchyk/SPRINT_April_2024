@@ -19,7 +19,7 @@ public class BasePage {
     protected static WebDriver driver;
     protected WebDriverWait wait;
 
-    public BasePage(WebDriver driver) {
+    protected BasePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(BASE_WAIT));
     }
@@ -33,7 +33,7 @@ public class BasePage {
         }
     }
 
-    public WebElement waitClickabilityOfElement(String locator) {
+    protected WebElement waitClickabilityOfElement(String locator) {
         try {
             return wait.until(elementToBeClickable(By.xpath(locator)));
         } catch (WebDriverException e) {
