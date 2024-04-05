@@ -42,7 +42,6 @@ public class HeaderFragment extends BasePage {
     public WebElement getButtonClearSearchFieldPresence(){
         return waitPresenceOfElement(CLEAR_BUTTON_SEARCH_FIELD);
     }
-}
 
     public WebElement getToGiftCardsButton() {
         return waitClickabilityOfElement(GIFT_CARDS_BUTTON);
