@@ -33,13 +33,6 @@ public class HeaderFragment extends BasePage {
     }
 
     public WebElement getClearSearchFieldButton() {
-        return waitVisibilityOfElement(CLEAR_BUTTON_SEARCH_FIELD);
-    }
-
-    public boolean isButtonDisplayed() {
-        return waitVisibilityOfElement(CLEAR_BUTTON_SEARCH_FIELD) !=null;
-    }
-    public WebElement getButtonClearSearchFieldPresence(){
         return waitPresenceOfElement(CLEAR_BUTTON_SEARCH_FIELD);
     }
 
