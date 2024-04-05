@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 public class HeaderFragment extends BasePage {
 
     private static final String SIGN_IN = "//div[contains(@class,'cart-container')]//a[@data-open='utilityNavModal7']";
+    private static final String CATEGORY_DROPDOWN = "//a[normalize-space(text())='%s']";
     private static final String COOKIES_ACCEPTED = id("onetrust-accept-btn-handler");
     private static final String GIFT_CARDS_BUTTON = "//*[@class='topnav-utility-medium']//span[contains(text(),'Cards')]";
 
@@ -25,6 +26,11 @@ public class HeaderFragment extends BasePage {
     public void clickSignIn() {
         waitClickabilityOfElement(SIGN_IN).click();
     }
+
+    public void chooseCategoryDropdown(String category) {
+        waitClickabilityOfElement(String.format(CATEGORY_DROPDOWN, category)).click();
+    }
+}
 
     public WebElement getToGiftCardsButton() {
         return waitClickabilityOfElement(GIFT_CARDS_BUTTON);
