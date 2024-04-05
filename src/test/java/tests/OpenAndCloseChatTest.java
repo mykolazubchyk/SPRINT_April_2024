@@ -7,12 +7,13 @@ import pages.Homepage;
 import static common.BasePage.driver;
 
 @Test
-public class OpenAndCloseChatTest extends BaseTest{
+public class OpenAndCloseChatTest extends BaseTest {
 
+        public void clickOnVansPremiumButton() {
+                Homepage homepage = new Homepage(driver);
+                homepage.clickOnVansPremiumButton();
+        homepage.clickOnChatButton();
+        homepage.clickOnCloseChatButton();
 
-        Homepage homepage = new Homepage(driver);
-        homepage.clickOnVansPremiumButton();
-        .clickOnChatButton();
-        .clickOnCloseChatButton();
-
+        }
 }
