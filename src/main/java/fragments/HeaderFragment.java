@@ -8,7 +8,8 @@ import org.openqa.selenium.WebElement;
 public class HeaderFragment extends BasePage {
 
     private static final String SIGN_IN = "//div[contains(@class,'cart-container')]//a[@data-open='utilityNavModal7']";
-    private static final String COOKIES_ACCEPTED = "//button[@id='onetrust-accept-btn-handler']";
+    private static final String COOKIES_ACCEPTED = id("onetrust-accept-btn-handler");
+    private static final String GIFT_CARDS_BUTTON = "//*[@class='topnav-utility-medium']//span[contains(text(),'Cards')]";
     private static final String SEARCH_FIELD = "//*[@name='searchTerm']";
     private static final String CLEAR_BUTTON_SEARCH_FIELD = "//*[@ class='topnav-clear-input']";
 
@@ -40,5 +41,10 @@ public class HeaderFragment extends BasePage {
     }
     public WebElement getButtonClearSearchFieldPresence(){
         return waitPresenceOfElement(CLEAR_BUTTON_SEARCH_FIELD);
+    }
+}
+
+    public WebElement getToGiftCardsButton() {
+        return waitClickabilityOfElement(GIFT_CARDS_BUTTON);
     }
 }
