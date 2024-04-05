@@ -6,11 +6,12 @@ import pages.Homepage;
 
 import static common.BasePage.driver;
 
-
+@Test
 public class OpenAndCloseChatTest extends BaseTest{
 
-@Test
-        .clickOnVansPremiumButton();
+
+        Homepage homepage = new Homepage(driver);
+        homepage.clickOnVansPremiumButton();
         .clickOnChatButton();
         .clickOnCloseChatButton();
 
