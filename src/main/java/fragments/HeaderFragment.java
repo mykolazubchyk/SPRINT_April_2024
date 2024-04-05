@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class HeaderFragment extends BasePage {
 
     private static final String SIGN_IN = "//div[contains(@class,'cart-container')]//a[@data-open='utilityNavModal7']";
-    private static final String COOKIES_ACCEPTED = "//button[@id='onetrust-accept-btn-handler']";
+    private static final String COOKIES_ACCEPTED = id("onetrust-accept-btn-handler");
 
     public HeaderFragment(WebDriver driver) {
         super(driver);

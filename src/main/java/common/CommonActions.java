@@ -105,4 +105,8 @@ public class CommonActions extends BasePage {
     public static void scrollToElement(WebDriver driver, WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
+    public static int getElementsNumber(String locator) {
+        return driver.findElements(By.xpath(locator)).size();
+    }
 }
