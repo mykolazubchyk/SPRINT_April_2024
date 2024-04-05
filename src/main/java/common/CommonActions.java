@@ -103,7 +103,7 @@ public class CommonActions extends BasePage {
     }
 
     public static void scrollToElement(WebDriver driver, WebElement element) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: \"center\"});", element);
     }
 
     public static int getElementsNumber(String locator) {
