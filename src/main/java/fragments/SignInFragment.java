@@ -8,7 +8,7 @@ public class SignInFragment extends BasePage {
 
     private static final String EMAIL_FIELD = "//input[contains(@class,'myaccount-signin-email')]";
     private static final String PASSWORD_FIELD = "//input[contains(@class,'signin-password-input')]";
-    private static final String SUBMIT_BUTTON = "//button[@id='buttonsignin']";
+    private static final String SUBMIT_BUTTON = id("buttonsignin");
     private static final String ERROR_MESSAGE = "//div[@id='logonId-error']";
 
     public SignInFragment(WebDriver driver) {
