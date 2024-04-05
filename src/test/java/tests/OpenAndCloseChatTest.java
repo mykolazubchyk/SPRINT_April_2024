@@ -7,12 +7,11 @@ import pages.Homepage;
 import static common.BasePage.driver;
 
 
-
+public class OpenAndCloseChatTest extends BaseTest{
 
 @Test
-public class OpenAndCloseChatTest extends BaseTest{
-    .clickOnVansPremiumButton();
-    .clickOnChatButton();
-    .clickOnCloseChatButton();
+        .clickOnVansPremiumButton();
+        .clickOnChatButton();
+        .clickOnCloseChatButton();
 
 }
