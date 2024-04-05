@@ -18,6 +18,7 @@ import static org.openqa.selenium.Keys.*;
 
 public class CommonActions extends BasePage {
 
+
     public static final Faker faker = new Faker();
 
     protected CommonActions(WebDriver driver) {
