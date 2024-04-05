@@ -22,7 +22,6 @@ public class EmptySidebarCartTest extends BaseTest {
         sidebarCartFragment.clickCartIcon();
 
         softAssert.assertEquals(sidebarCartFragment.getQuantityCount(), 0, "The number of items in the cart sidebar is not zero");
-
         softAssert.assertTrue(sidebarCartFragment.isCheckoutButtonAbsent(), "Checkout button is present in empty cart");
         softAssert.assertTrue(sidebarCartFragment.isSubtotalFieldAbsent(), "Subtotal field is present in empty cart");
     }
