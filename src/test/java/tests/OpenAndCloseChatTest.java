@@ -10,7 +10,7 @@ import static common.BasePage.driver;
 
 
 @Test
-public class OpenAndCloseChatTest{
+public class OpenAndCloseChatTest extends BaseTest{
     .clickOnVansPremiumButton();
     .clickOnChatButton();
     .clickOnCloseChatButton();
