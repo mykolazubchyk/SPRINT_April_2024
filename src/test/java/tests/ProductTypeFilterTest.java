@@ -1,14 +1,19 @@
 package tests;
 
-import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.WomanPage;
 
-public class ProductTypeFilter extends BaseTest {
+public class ProductTypeFilterTest extends BaseTest {
+    private static WomanPage womanPage;
+
+    @BeforeMethod
+    private void initTest(){
+        womanPage = new WomanPage(driver);
+    }
 
     @Test(description = "SPRIN-10:Product Type Filter ")
     public void verifyProductTypeFilter() {
-        WomanPage womanPage = new WomanPage(driver);
 
         womanPage.getHeaderFragment().chooseCategoryDropdown("Women");
         womanPage.getFilterFragment().waitUntilSpinnerDisappear();
@@ -16,13 +21,14 @@ public class ProductTypeFilter extends BaseTest {
         womanPage.getFilterFragment().waitUntilSpinnerDisappear();
 
         for (String name : womanPage.getItemCatalogFragment().getListOfAllItemsName()) {
-            Assert.assertTrue(name.contains("Shoes"), "Item name does not contain chosen category");
+            softAssert.assertTrue(name.contains("Shoes"), "Item name does not contain chosen category");
         }
 
         womanPage.getFilterFragment().chooseProductType("Slip-ons");
+        womanPage.getFilterFragment().waitUntilSpinnerDisappear();
 
         for (String name : womanPage.getItemCatalogFragment().getListOfAllItemsName()) {
-            Assert.assertTrue(name.contains("Slip-On"), "Item name does not contain chosen category");
+            softAssert.assertTrue(name.contains("Slip-On"), "Item name does not contain chosen category");
         }
     }
 }
