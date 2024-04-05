@@ -11,7 +11,7 @@ public class Homepage extends HeaderFragment {
     }
 
     public void clickOnVansPremiumButton() {
-        WebElement element = driver.findElement(By.xpath("//a[@href=/shop/en-gb/vans-gb/premium]"));
+        WebElement element = driver.findElement(By.xpath("//*[contains(@class, 'l1category') and contains(@class, 'section')]"));
         element.click();
     }
 
@@ -21,7 +21,12 @@ public class Homepage extends HeaderFragment {
     }
 
     public void clickOnCloseChatButton() {
-        WebElement element = driver.findElement(By.xpath("//button[contains(@class, 'helpButton')]"));
+        WebElement element = driver.findElement(By.xpath("//button[contains(@class, 'closeButton')]"));
+        element.click();
+    }
+
+    public void clickOnAllowAll() {
+        WebElement element = driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']"));
         element.click();
     }
 }
