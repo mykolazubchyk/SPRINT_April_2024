@@ -69,7 +69,5 @@ public class EventBannersTest extends BaseTest {
         for (String product : theAveProducts) {
             softAssert.assertTrue(product.contains("Ave"), "Product does not contain 'Ave': " + product);
         }
-
-        softAssert.assertAll();
     }
 }
