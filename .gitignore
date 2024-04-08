@@ -13,6 +13,8 @@ target/
 *.ipr
 .idea
 .idea/
+.allure
+.allure/
 src/main/resources/application.conf
 
 ### Eclipse ###

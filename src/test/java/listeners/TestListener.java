@@ -13,17 +13,16 @@ import static tests.BaseTest.logger;
 public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
-        logger.info("---------------------------------------------------------------");
-        logger.info("Failed because of - " + result.getThrowable());
-        logger.info("---------------------------------------------------------------");
+        logger.fatal("---------------------------------------------------------------");
+        logger.fatal("Failed because of - " + result.getThrowable());
+        logger.fatal("---------------------------------------------------------------");
         var driver = ((BaseTest) result.getInstance()).getriver();
-        if (driver != null) {
-            try {
-                captureScreen((WebDriver) driver);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            captureScreen((WebDriver) driver);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
     }
 }
 
