@@ -109,4 +109,8 @@ public class CommonActions extends BasePage {
     public static int getElementsNumber(String locator) {
         return driver.findElements(By.xpath(locator)).size();
     }
+
+    public static void goToPreviousPage(WebDriver driver) {
+        driver.navigate().back();
+    }
 }
