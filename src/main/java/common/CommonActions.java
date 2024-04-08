@@ -18,6 +18,7 @@ import static org.openqa.selenium.Keys.*;
 
 public class CommonActions extends BasePage {
 
+
     public static final Faker faker = new Faker();
 
     protected CommonActions(WebDriver driver) {
@@ -103,7 +104,7 @@ public class CommonActions extends BasePage {
     }
 
     public static void scrollToElement(WebDriver driver, WebElement element) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: \"center\"});", element);
     }
 
     public static int getElementsNumber(String locator) {

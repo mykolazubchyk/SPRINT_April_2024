@@ -80,4 +80,12 @@ public class BasePage {
     protected boolean isElementDisplayed(String locator) {
         return driver.findElement(By.xpath(locator)).isDisplayed();
     }
+
+    protected void waitUntilElementDisappear(String locator) {
+        try {
+            wait.until(invisibilityOfElementLocated(By.xpath(locator)));
+        } catch (WebDriverException e) {
+            logger.warn("Element is still visible: " + locator);
+        }
+    }
 }
