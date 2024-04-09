@@ -11,7 +11,7 @@ public class EmptySidebarCartTest extends BaseTest {
     public static SidebarCartFragment sidebarCartFragment;
 
     @BeforeMethod
-    public void beforeTest() {
+    public void initTest() {
         headerFragment = new HeaderFragment(driver);
         sidebarCartFragment = new SidebarCartFragment(driver);
     }

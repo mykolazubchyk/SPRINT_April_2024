@@ -23,7 +23,7 @@ public class EventBannersTest extends BaseTest {
     public static TheAvePage theAvePage;
 
     @BeforeMethod
-    public void beforeTest() {
+    public void initTest() {
         homepage = new Homepage(driver);
         headerFragment = new HeaderFragment(driver);
         ultraRangePage = new UltraRangePage(driver);
