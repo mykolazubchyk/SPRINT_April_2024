@@ -14,7 +14,7 @@ public class TestListener implements ITestListener {
         logger.fatal("Failed because of - " + result.getThrowable());
         logger.fatal("---------------------------------------------------------------");
         var driver = ((BaseTest) result.getInstance()).getDriver();
-        if (driver != null) {
+        if (driver!= null){
             captureScreen(driver);
         }
     }
