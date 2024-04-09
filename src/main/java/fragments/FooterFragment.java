@@ -1,6 +1,7 @@
 package fragments;
 
 import common.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -51,4 +52,24 @@ public class FooterFragment extends BasePage {
     public WebElement getPrivacyPolicyLink() {
         return waitVisibilityOfElement(PRIVACY_POLICY_LINK);
     }
+    public void clickOnVansPremiumButton() {
+        WebElement element = driver.findElement(By.xpath("//*[contains(@class, 'l1category') and contains(@class, 'section')]"));
+        element.click();
+    }
+
+    public void clickOnChatButton() {
+        WebElement element = driver.findElement(By.xpath("//button[contains(@class, 'helpButton')]"));
+        element.click();
+    }
+
+    public void clickOnCloseChatButton() {
+        WebElement element = driver.findElement(By.xpath("//button[contains(@class, 'closeButton')]"));
+        element.click();
+    }
+
+    public void clickOnAllowAll() {
+        WebElement element = driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']"));
+        element.click();
+    }
 }
+
