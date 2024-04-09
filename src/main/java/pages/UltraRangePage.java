@@ -1,5 +1,6 @@
 package pages;
 
+import common.BasePage;
 import fragments.HeaderFragment;
 import org.openqa.selenium.WebDriver;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 import static common.CommonActions.*;
 
-public class UltraRangePage extends HeaderFragment {
+public class UltraRangePage extends BasePage {
 
     private static final String ULTRARANGE_PAGE_TITLE = "//div[@class='category-title-and-description']//h1";
     private static final String ULTRARANGE_PRODUCTS = "//span[@class='product-block-name-wrapper']";

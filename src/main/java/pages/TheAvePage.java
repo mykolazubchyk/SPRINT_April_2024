@@ -1,5 +1,6 @@
 package pages;
 
+import common.BasePage;
 import fragments.HeaderFragment;
 import org.openqa.selenium.WebDriver;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 import static common.CommonActions.getListOfString;
 
-public class TheAvePage extends HeaderFragment {
+public class TheAvePage extends BasePage {
 
     private static final String THE_AVE_PAGE_TITLE = "//div[@class='category-title-and-description']";
     private static final String THE_AVE_PRODUCTS = "//span[@class='product-block-name-wrapper']";

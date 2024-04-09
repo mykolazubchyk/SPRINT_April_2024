@@ -1,32 +1,32 @@
 package pages;
 
-import fragments.HeaderFragment;
+import common.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Homepage extends HeaderFragment {
+public class Homepage extends BasePage {
 
-    private static final String EVENT_BANNER_ONE = "//div[@class='card-w secondary-sale'][1]";
-    private static final String EVENT_BANNER_TWO = "//div[@class='card-w secondary-sale'][2]";
-    private static final String EVENT_BANNER_THREE = "//div[@class='button-w single-button']";
+    private static final String FIRST_EVENT_BANNER = "//div[@class='card-w secondary-sale'][1]";
+    private static final String SECOND_EVENT_BANNER = "//div[@class='card-w secondary-sale'][2]";
+    private static final String THIRD_EVENT_BANNER = "//div[@class='button-w single-button']";
 
     public Homepage(WebDriver driver) {
         super(driver);
     }
 
     public WebElement getEventBannerOneElement() {
-        return waitVisibilityOfElement(EVENT_BANNER_ONE);
+        return waitVisibilityOfElement(FIRST_EVENT_BANNER);
     }
 
-    public void eventBannerOneClick() {
-        waitClickabilityOfElement(EVENT_BANNER_ONE).click();
+    public void firstEventBannerGet() {
+        waitClickabilityOfElement(FIRST_EVENT_BANNER).click();
     }
 
-    public void eventBannerTwoClick() {
-        waitClickabilityOfElement(EVENT_BANNER_TWO).click();
+    public void secondEventBannerGet() {
+        waitClickabilityOfElement(SECOND_EVENT_BANNER).click();
     }
 
-    public void eventBannerThreeClick() {
-        waitClickabilityOfElement(EVENT_BANNER_THREE).click();
+    public void thirdEventBannerGet() {
+        waitClickabilityOfElement(THIRD_EVENT_BANNER).click();
     }
 }
