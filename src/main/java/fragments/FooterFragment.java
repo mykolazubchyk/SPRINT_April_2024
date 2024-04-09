@@ -58,21 +58,25 @@ public class FooterFragment extends BasePage {
         return waitVisibilityOfElement(PRIVACY_POLICY_LINK);
     }
 
-    public void getTwitterLink()
+    public void goToTwitterPage()
     {
         waitClickabilityOfElement(TWITTER_ICON).click();
     }
-    public void getFacebookLink()
+
+    public void goToFacebookPage()
     {
         waitClickabilityOfElement(FACEBOOK_ICON).click();
     }
-    public void getInstagramLink()
+
+    public void goToInstagramPage()
     {
         waitClickabilityOfElement(INSTAGRAM_ICON).click();
     }
-    public void getYoutubeLink()
+
+    public void goToYoutubeChannel()
     {
         waitClickabilityOfElement(YOUTUBE_ICON).click();
     }
+
     public WebElement getFollowUsSection(){return waitPresenceOfElement(FOLLOW_US);}
 }
