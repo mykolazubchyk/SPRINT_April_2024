@@ -16,7 +16,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 public class BasePage {
     public static final Logger logger = LogManager.getLogger(BasePage.class);
     private final int BASE_WAIT = 5;
-    public static WebDriver driver;
+    protected static WebDriver driver;
     protected WebDriverWait wait;
 
     protected BasePage(WebDriver driver) {

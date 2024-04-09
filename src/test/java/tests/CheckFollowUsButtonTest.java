@@ -17,14 +17,12 @@ public class CheckFollowUsButtonTest extends BaseTest {
     @BeforeMethod
     public void initTest() {
         footerFragment = new FooterFragment(driver);
-
     }
 
     @Test(description = "SPRIN-114 Transfer FOLLOW US section in the footer")
-    public void clickOnTheTwitterButton() {
+    public void validateFollowUsSection() {
         scrollToElement(driver,footerFragment.getFollowUsSection());
         footerFragment.goToTwitterPage();
-        driver.getCurrentUrl();
 
         softAssert.assertEquals(driver.getCurrentUrl(),EXPECTED_TWITTER_URL,"Expected URL isn`t valid");
 
@@ -43,6 +41,4 @@ public class CheckFollowUsButtonTest extends BaseTest {
 
         softAssert.assertTrue(driver.getCurrentUrl().startsWith(EXPECTED_PART_YOUTUBE_URL),"Expected URL isn`t valid");
     }
-
 }
-

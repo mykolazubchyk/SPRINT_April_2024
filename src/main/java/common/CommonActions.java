@@ -83,9 +83,9 @@ public class CommonActions extends BasePage {
         }
     }
 
-
+    @SneakyThrows
     @Attachment(value = "Page screenshot", type = "image/png")
-    public static byte[] captureScreen(WebDriver driver) throws IOException {
+    public static byte[] captureScreen(WebDriver driver) {
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenshot, new File("./target/allure-results//" + screenshot.getName()));
         return Files.toByteArray(screenshot);

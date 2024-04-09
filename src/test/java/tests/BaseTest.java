@@ -12,7 +12,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.asserts.SoftAssert;
 
-
 @Listeners(TestListener.class)
 public abstract class BaseTest {
 
@@ -47,15 +46,4 @@ public abstract class BaseTest {
     public void openUrl() {
         driver.get(BASE_URL);
     }
-
-    public void OpenWebSite() {
-
-    }
-
-    public Object getriver() {
-
-        return null;
-    }
 }
-
-

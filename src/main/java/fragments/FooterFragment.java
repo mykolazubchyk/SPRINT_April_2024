@@ -19,8 +19,7 @@ public class FooterFragment extends BasePage {
     private static final String FACEBOOK_ICON = "//a[@href='https://www.facebook.com/VansEurope']";
     private static final String INSTAGRAM_ICON = "//a[@href='https://www.instagram.com/vans_europe/']";
     private static final String YOUTUBE_ICON = "//a[@href='https://www.youtube.com/user/VansShoes66']";
-    private static final String FOLLOW_US = "//div[@id='socialLinksFooterBox']";
-
+    private static final String FOLLOW_US = id("socialLinksFooterBox");
 
     public FooterFragment(WebDriver driver) {
         super(driver);
@@ -58,25 +57,23 @@ public class FooterFragment extends BasePage {
         return waitVisibilityOfElement(PRIVACY_POLICY_LINK);
     }
 
-    public void goToTwitterPage()
-    {
+    public void goToTwitterPage() {
         waitClickabilityOfElement(TWITTER_ICON).click();
     }
 
-    public void goToFacebookPage()
-    {
+    public void goToFacebookPage() {
         waitClickabilityOfElement(FACEBOOK_ICON).click();
     }
 
-    public void goToInstagramPage()
-    {
+    public void goToInstagramPage() {
         waitClickabilityOfElement(INSTAGRAM_ICON).click();
     }
 
-    public void goToYoutubeChannel()
-    {
+    public void goToYoutubeChannel() {
         waitClickabilityOfElement(YOUTUBE_ICON).click();
     }
 
-    public WebElement getFollowUsSection(){return waitPresenceOfElement(FOLLOW_US);}
+    public WebElement getFollowUsSection() {
+        return waitPresenceOfElement(FOLLOW_US);
+    }
 }
