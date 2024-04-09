@@ -3,26 +3,19 @@ package tests;
 import fragments.FooterFragment;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.Homepage;
+import static common.CommonActions.scrollToElement;
+
 public class OpenAndCloseChatTest extends BaseTest {
+    private static FooterFragment footerFragment;
 
-@Test
+    @BeforeMethod
+    public void initTest() {
+        footerFragment = new FooterFragment(driver);
+    }
 
-    public void OpenAndCloseChat() {
-        Homepage homepage = new Homepage(driver);
-        homepage.clickOnAllowAll();
-        homepage.clickOnVansPremiumButton();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        homepage.clickOnChatButton();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        homepage.clickOnCloseChatButton();
+    @Test(description = "Sprint_113_Open_And_Close_Chat")
+    public void openAndCloseButtonsInChat() {
+        scrollToElement(driver, footerFragment.getFollowUsSection());
+
     }
 }
