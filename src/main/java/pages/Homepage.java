@@ -29,4 +29,5 @@ public class Homepage extends HeaderFragment {
         WebElement element = driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']"));
         element.click();
     }
-}
+        }
+

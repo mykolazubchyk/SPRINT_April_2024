@@ -10,9 +10,9 @@ import static tests.BaseTest.logger;
 public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
-        logger.info("---------------------------------------------------------------");
-        logger.info("Failed because of - " + result.getThrowable());
-        logger.info("---------------------------------------------------------------");
+        logger.fatal("---------------------------------------------------------------");
+        logger.fatal("Failed because of - " + result.getThrowable());
+        logger.fatal("---------------------------------------------------------------");
         var driver = ((BaseTest) result.getInstance()).getDriver();
         if (driver != null) {
             captureScreen(driver);
