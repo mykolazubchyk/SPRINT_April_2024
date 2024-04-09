@@ -35,7 +35,7 @@ public class EventBannersTest extends BaseTest {
     @Test(description = "Transfer to event banners and checking their content")
     public void eventBannersContent() {
         scrollToElement(driver, homepage.getEventBannerOneElement());
-        homepage.firstEventBannerGet();
+        homepage.getFirstEventBanner();
 
         String ultraRangeTitleText = ultraRangePage.getUltraRangePageTitleText();
         List<String> ultraRangeProducts = ultraRangePage.getUltraRangeProducts();
@@ -47,7 +47,7 @@ public class EventBannersTest extends BaseTest {
         }
 
         goToPreviousPage(driver);
-        homepage.secondEventBannerGet();
+        homepage.getSecondEventBanner();
 
         String oldMeetsKnuTitleText = oldMeetsKnuPage.getOldMeetsKnuPageTitleText();
         List<String> oldMeetsKnuProducts = oldMeetsKnuPage.getOldMeetsKnuProducts();
@@ -59,7 +59,7 @@ public class EventBannersTest extends BaseTest {
         }
 
         goToPreviousPage(driver);
-        homepage.thirdEventBannerGet();
+        homepage.getThirdEventBanner();
 
         String theAveTitleText = theAvePage.getTheAvePageTitleText();
         List<String> theAveProducts = theAvePage.getTheAveProducts();
