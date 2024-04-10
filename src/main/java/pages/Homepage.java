@@ -14,10 +14,6 @@ public class Homepage extends BasePage {
         super(driver);
     }
 
-    public WebElement getEventBannerOneElement() {
-        return waitVisibilityOfElement(FIRST_EVENT_BANNER);
-    }
-
     public WebElement getFirstEventBanner() {
        return waitVisibilityOfElement(FIRST_EVENT_BANNER);
     }

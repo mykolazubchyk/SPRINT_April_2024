@@ -31,7 +31,12 @@ public class EventBannersTest extends BaseTest {
     @Issue("SPRIN-124")
     @Test(description = "Transfer to event banners and checking their content")
     public void eventBannersContent() {
-        scrollToElement(driver, homepage.getEventBannerOneElement());
+        scrollToElement(driver, homepage.getFirstEventBanner());
+
+        softAssert.assertTrue(homepage.getFirstEventBanner().isDisplayed(), "The UltraRange banner is not displayed on the page.");
+        softAssert.assertTrue(homepage.getSecondEventBanner().isDisplayed(), "The Ave 2.0 banner is not displayed on the page.");
+        softAssert.assertTrue(homepage.getThirdEventBanner().isDisplayed(), "The BMX collection banner is not displayed on the page.");
+
         homepage.getFirstEventBanner().click();
 
         String ultraRangeTitleText = ultraRangePage.getProductHeaderFragment().getProductTitleText();
@@ -75,9 +80,6 @@ public class EventBannersTest extends BaseTest {
     }
 
     public static void convertToLowerCase(List<String> products) {
-        for (int i = 0; i < products.size(); i++) {
-            String product = products.get(i);
-            products.set(i, product.toLowerCase());
-        }
+        products.replaceAll(String::toLowerCase);
     }
 }
