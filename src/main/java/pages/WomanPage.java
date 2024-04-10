@@ -4,6 +4,7 @@ import common.BasePage;
 import fragments.FilterFragment;
 import fragments.HeaderFragment;
 import fragments.ItemCatalogFragment;
+import fragments.ItemPriceFragment;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 
@@ -15,6 +16,8 @@ public class WomanPage extends BasePage {
     private final ItemCatalogFragment itemCatalogFragment = new ItemCatalogFragment(driver);
     @Getter
     private final HeaderFragment headerFragment = new HeaderFragment(driver);
+    @Getter
+    private final ItemPriceFragment itemPriceFragment = new ItemPriceFragment(driver);
     public WomanPage(WebDriver driver) {
         super(driver);
     }
