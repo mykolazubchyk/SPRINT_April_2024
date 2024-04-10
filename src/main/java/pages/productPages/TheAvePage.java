@@ -1,13 +1,14 @@
-package pages;
+package pages.productPages;
 
 import common.BasePage;
 import fragments.FilterFragment;
 import fragments.HeaderFragment;
 import fragments.ItemCatalogFragment;
+import fragments.ProductHeaderFragment;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 
-public class WomanPage extends BasePage {
+public class TheAvePage extends BasePage {
 
     @Getter
     private final FilterFragment filterFragment = new FilterFragment(driver);
@@ -15,7 +16,10 @@ public class WomanPage extends BasePage {
     private final ItemCatalogFragment itemCatalogFragment = new ItemCatalogFragment(driver);
     @Getter
     private final HeaderFragment headerFragment = new HeaderFragment(driver);
-    public WomanPage(WebDriver driver) {
+    @Getter
+    private final ProductHeaderFragment productHeaderFragment = new ProductHeaderFragment(driver);
+
+    public TheAvePage(WebDriver driver) {
         super(driver);
     }
 }

@@ -1,13 +1,12 @@
 package tests;
 
-import fragments.HeaderFragment;
 import io.qameta.allure.Issue;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.Homepage;
-import pages.OldMeetsKnuPage;
-import pages.TheAvePage;
-import pages.UltraRangePage;
+import pages.productPages.BmxCollectionPage;
+import pages.productPages.TheAvePage;
+import pages.productPages.UltraRangePage;
 
 import java.util.List;
 
@@ -17,57 +16,68 @@ import static common.CommonActions.scrollToElement;
 public class EventBannersTest extends BaseTest {
 
     public static Homepage homepage;
-    public static HeaderFragment headerFragment;
     public static UltraRangePage ultraRangePage;
-    public static OldMeetsKnuPage oldMeetsKnuPage;
+    public static BmxCollectionPage bmxCollectionPage;
     public static TheAvePage theAvePage;
 
     @BeforeMethod
     public void initTest() {
         homepage = new Homepage(driver);
-        headerFragment = new HeaderFragment(driver);
         ultraRangePage = new UltraRangePage(driver);
-        oldMeetsKnuPage = new OldMeetsKnuPage(driver);
         theAvePage = new TheAvePage(driver);
+        bmxCollectionPage = new BmxCollectionPage(driver);
     }
 
     @Issue("SPRIN-124")
     @Test(description = "Transfer to event banners and checking their content")
     public void eventBannersContent() {
         scrollToElement(driver, homepage.getEventBannerOneElement());
-        homepage.getFirstEventBanner();
+        homepage.getFirstEventBanner().click();
 
-        String ultraRangeTitleText = ultraRangePage.getUltraRangePageTitleText();
-        List<String> ultraRangeProducts = ultraRangePage.getUltraRangeProducts();
+        String ultraRangeTitleText = ultraRangePage.getProductHeaderFragment().getProductTitleText();
+        List<String> ultraRangeProducts = ultraRangePage.getItemCatalogFragment().getListOfAllItemsName();
 
-        softAssert.assertTrue(ultraRangeTitleText.contains("ULTRARANGE"),"The expected title is different from the actual one");
+        softAssert.assertTrue(ultraRangeTitleText.contains("ULTRARANGE"), "The expected title is different from the actual one");
+
+        convertToLowerCase(ultraRangeProducts);
 
         for (String product : ultraRangeProducts) {
-            softAssert.assertTrue(product.contains("UltraRange"), "Product does not contain 'UltraRange': " + product);
+            softAssert.assertTrue(product.contains("ultrarange"), "Product does not contain 'ultrarange': " + product);
         }
 
         goToPreviousPage(driver);
-        homepage.getSecondEventBanner();
+        homepage.getSecondEventBanner().click();
 
-        String oldMeetsKnuTitleText = oldMeetsKnuPage.getOldMeetsKnuPageTitleText();
-        List<String> oldMeetsKnuProducts = oldMeetsKnuPage.getOldMeetsKnuProducts();
-
-        softAssert.assertTrue(oldMeetsKnuTitleText.contains("OLD MEETS KNU"), "The expected title is different from the actual one");
-
-        for (String product : oldMeetsKnuProducts) {
-            softAssert.assertTrue(product.contains("Knu") || product.contains("Skool"), "Product does not contain 'Knu' or 'Skool': " + product);
-        }
-
-        goToPreviousPage(driver);
-        homepage.getThirdEventBanner();
-
-        String theAveTitleText = theAvePage.getTheAvePageTitleText();
-        List<String> theAveProducts = theAvePage.getTheAveProducts();
+        String theAveTitleText = theAvePage.getProductHeaderFragment().getProductTitleText();
+        List<String> theAveProducts = theAvePage.getItemCatalogFragment().getListOfAllItemsName();
 
         softAssert.assertTrue(theAveTitleText.contains("AVE 2.0"), "The expected title is different from the actual one");
 
+        convertToLowerCase(theAveProducts);
+
         for (String product : theAveProducts) {
-            softAssert.assertTrue(product.contains("Ave"), "Product does not contain 'Ave': " + product);
+            softAssert.assertTrue(product.contains("ave"), "Product does not contain 'ave': " + product);
+        }
+
+        goToPreviousPage(driver);
+        homepage.getThirdEventBanner().click();
+
+        String bmxCollectionTitleText = bmxCollectionPage.getProductHeaderFragment().getProductTitleText();
+        List<String> bmxCollectionProducts = bmxCollectionPage.getItemCatalogFragment().getListOfAllItemsName();
+
+        softAssert.assertTrue(bmxCollectionTitleText.contains("VANS BMX COLLECTION"), "The expected title is different from the actual one");
+
+        convertToLowerCase(bmxCollectionProducts);
+
+        for (String product : bmxCollectionProducts) {
+            softAssert.assertTrue(product.contains("bmx") || product.contains("lewis"), "Product does not contain 'bmx': " + product);
+        }
+    }
+
+    public static void convertToLowerCase(List<String> products) {
+        for (int i = 0; i < products.size(); i++) {
+            String product = products.get(i);
+            products.set(i, product.toLowerCase());
         }
     }
 }

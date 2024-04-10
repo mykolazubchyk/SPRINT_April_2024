@@ -14,6 +14,7 @@
             <class name="tests.GiftCardsAccordingFaqTest" > </class>
             <class name="tests.SearchFieldTest" > </class>
             <class name="tests.CheckFollowUsButtonTest" > </class>
+            <class name="tests.EventBannersTest" > </class>
         </classes>
     </test>
 

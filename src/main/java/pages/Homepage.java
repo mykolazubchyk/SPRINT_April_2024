@@ -18,15 +18,15 @@ public class Homepage extends BasePage {
         return waitVisibilityOfElement(FIRST_EVENT_BANNER);
     }
 
-    public void getFirstEventBanner() {
-        waitClickabilityOfElement(FIRST_EVENT_BANNER).click();
+    public WebElement getFirstEventBanner() {
+       return waitVisibilityOfElement(FIRST_EVENT_BANNER);
     }
 
-    public void getSecondEventBanner() {
-        waitClickabilityOfElement(SECOND_EVENT_BANNER).click();
+    public WebElement getSecondEventBanner() {
+        return waitVisibilityOfElement(SECOND_EVENT_BANNER);
     }
 
-    public void getThirdEventBanner() {
-        waitClickabilityOfElement(THIRD_EVENT_BANNER).click();
+    public WebElement getThirdEventBanner() {
+        return waitVisibilityOfElement(THIRD_EVENT_BANNER);
     }
 }
