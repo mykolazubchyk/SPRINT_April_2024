@@ -10,24 +10,5 @@ public class Homepage extends HeaderFragment {
         super(driver);
     }
 
-    public void clickOnVansPremiumButton() {
-        WebElement element = driver.findElement(By.xpath("//*[contains(@class, 'l1category') and contains(@class, 'section')]"));
-        element.click();
-    }
-
-    public void clickOnChatButton() {
-        WebElement element = driver.findElement(By.xpath("//button[contains(@class, 'helpButton')]"));
-        element.click();
-    }
-
-    public void clickOnCloseChatButton() {
-        WebElement element = driver.findElement(By.xpath("//button[contains(@class, 'closeButton')]"));
-        element.click();
-    }
-
-    public void clickOnAllowAll() {
-        WebElement element = driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']"));
-        element.click();
-    }
-        }
+}
 

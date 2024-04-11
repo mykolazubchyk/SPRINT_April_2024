@@ -16,7 +16,6 @@ public class FooterFragment extends BasePage {
     private static final String ACCEPT_PRIVACY_POLICY_CHECKBOX = id("newsletterCheckField");
     private static final String PRIVACY_POLICY_TEXT = "//*[@class='text-wrapper']";
     private static final String PRIVACY_POLICY_LINK = PRIVACY_POLICY_TEXT + "/a";
-    private static final String SELECT_VANS_PREMIUM_PAGE = "//*[contains(@class, 'l1category') and contains(@class, 'section')]";
     private static final String OPEN_CHAT = "//button[contains(@class, 'helpButton')]";
     private static final String CLOSE_CHAT_BUTTON ="//button[contains(@class, 'closeButton')]";
 
@@ -55,16 +54,6 @@ public class FooterFragment extends BasePage {
     public WebElement getPrivacyPolicyLink() {
         return waitVisibilityOfElement(PRIVACY_POLICY_LINK);
     }
-    public WebElement selectVansPremiumPage() {
-        return waitClickabilityOfElement(SELECT_VANS_PREMIUM_PAGE);
-    }
-
-    public WebElement clickOnChatButton() {
-        return waitClickabilityOfElement(OPEN_CHAT);
-    }
-
-    public WebElement clickOnCloseChatButton() {
-        return waitClickabilityOfElement(CLOSE_CHAT_BUTTON);
-    }
 }
+
 

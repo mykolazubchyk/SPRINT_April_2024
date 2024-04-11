@@ -1,21 +1,29 @@
 package tests;
 
-import fragments.FooterFragment;
+import fragments.HeaderFragment;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import static common.CommonActions.scrollToElement;
+import fragments.ChatFragment;
 
 public class OpenAndCloseChatTest extends BaseTest {
-    private static FooterFragment footerFragment;
+    private static ChatFragment vansPremiumPage;
+    private static HeaderFragment headerFragment;
 
     @BeforeMethod
     public void initTest() {
-        footerFragment = new FooterFragment(driver);
+        headerFragment = new HeaderFragment(driver);
+        vansPremiumPage = new ChatFragment(driver);
     }
 
     @Test(description = "Sprint_113_Open_And_Close_Chat")
     public void openAndCloseButtonsInChat() {
-        scrollToElement(driver, footerFragment.getFollowUsSection());
+        headerFragment.getToGiftCardsButton().click();
+        vansPremiumPage.clickOnChatButton().click();
 
+        softAssert.assertTrue(vansPremiumPage.isChatOpened());
+
+        vansPremiumPage.clickOnCloseChatButton().click();
+
+        softAssert.assertTrue(vansPremiumPage.isChatClosed());
     }
 }
