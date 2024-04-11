@@ -16,8 +16,6 @@ public class FooterFragment extends BasePage {
     private static final String ACCEPT_PRIVACY_POLICY_CHECKBOX = id("newsletterCheckField");
     private static final String PRIVACY_POLICY_TEXT = "//*[@class='text-wrapper']";
     private static final String PRIVACY_POLICY_LINK = PRIVACY_POLICY_TEXT + "/a";
-    private static final String OPEN_CHAT = "//button[contains(@class, 'helpButton')]";
-    private static final String CLOSE_CHAT_BUTTON ="//button[contains(@class, 'closeButton')]";
 
     public FooterFragment(WebDriver driver) {
         super(driver);
