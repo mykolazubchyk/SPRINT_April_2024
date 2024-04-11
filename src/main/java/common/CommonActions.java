@@ -10,10 +10,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import static org.openqa.selenium.Keys.*;
 
@@ -110,5 +110,15 @@ public class CommonActions extends BasePage {
 
     public static int getElementsNumber(String locator) {
         return driver.findElements(By.xpath(locator)).size();
+    }
+
+    public static void goToPreviousPage(WebDriver driver) {
+        driver.navigate().back();
+    }
+
+    public static List<String> convertListToLowerCase(List<String> products) {
+        return products.stream()
+                .map(String::toLowerCase)
+                .collect(Collectors.toList());
     }
 }

@@ -5,7 +5,7 @@ import fragments.ItemCatalogFragment;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.ProductPage;
-import pages.WomanPage;
+import pages.productPages.WomanPage;
 
 public class SizeFilteringTest extends BaseTest {
     private static WomanPage womanPage;
