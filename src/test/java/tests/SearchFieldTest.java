@@ -18,15 +18,17 @@ public class SearchFieldTest extends BaseTest {
     @Test(description = "SPRIN-64: Clear the search field")
     public void testClearSearchField() {
 
-        softAssert.assertTrue(headerFragment.getButtonClearSearchFieldPresence().isDisplayed(), "sad");
-        softAssert.assertTrue(!headerFragment.isButtonDisplayed(), "The button is visible");
+        softAssert.assertFalse(headerFragment.getClearSearchFieldButton().isDisplayed(),
+                "The button is displayed");
 
         headerFragment.getSearchField().sendKeys(SEARCH_TEXT);
 
-        softAssert.assertTrue(headerFragment.isButtonDisplayed(), "The button is not visible");
+        softAssert.assertTrue(headerFragment.getClearSearchFieldButton().isDisplayed(),
+                "The button is not displayed");
 
         headerFragment.getClearSearchFieldButton().click();
 
-        softAssert.assertTrue(!headerFragment.isButtonDisplayed(), "The button is visible");
+        softAssert.assertTrue(!headerFragment.getClearSearchFieldButton().isDisplayed(),
+                "The button is displayed");
     }
 }
