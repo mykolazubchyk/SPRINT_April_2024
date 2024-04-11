@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static credentials.Data.EMAIL_FOR_RE_SIGN_UP;
+
 public class FooterFragment extends BasePage {
 
     private static final String SIGN_UP_FIELD = id("newsletterInputField");
@@ -16,8 +18,10 @@ public class FooterFragment extends BasePage {
     private static final String ACCEPT_PRIVACY_POLICY_CHECKBOX = id("newsletterCheckField");
     private static final String PRIVACY_POLICY_TEXT = "//*[@class='text-wrapper']";
     private static final String PRIVACY_POLICY_LINK = PRIVACY_POLICY_TEXT + "/a";
-    private static final String OPEN_CHAT = "//button[contains(@class, 'helpButton')]";
-    private static final String CLOSE_CHAT_BUTTON ="//button[contains(@class, 'closeButton')]";
+    private static final String EMAIL_FIELD =id("newsletterInputField");
+    private static final String ACCEPT_PRIVACY_POLICY = id ("newsletterCheckField");
+    private static final String  CLICK_ENTER = "//a[@id='newsletterSubmitCTA']";
+    private static final String GET_ERROR_MESSAGE = "//p[@class='error']";
 
     public FooterFragment(WebDriver driver) {
         super(driver);
@@ -53,6 +57,18 @@ public class FooterFragment extends BasePage {
 
     public WebElement getPrivacyPolicyLink() {
         return waitVisibilityOfElement(PRIVACY_POLICY_LINK);
+    }
+    public void enterExistedEmail(String email) {
+        waitClickabilityOfElement(EMAIL_FIELD).sendKeys(email);
+    }
+    public void acceptPrivacyPolicy(){
+        waitClickabilityOfElement(ACCEPT_PRIVACY_POLICY).click();
+    }
+    public void submitForNewsletters(){
+        waitClickabilityOfElement(CLICK_ENTER).click();
+    }
+    public String getMessageError() {
+       return waitVisibilityOfElement(GET_ERROR_MESSAGE).getText();
     }
 }
 
