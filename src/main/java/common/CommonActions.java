@@ -13,6 +13,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import static org.openqa.selenium.Keys.*;
 
@@ -116,10 +117,8 @@ public class CommonActions extends BasePage {
     }
 
     public static List<String> convertListToLowerCase(List<String> products) {
-        List<String> lowerCaseProducts = new ArrayList<>();
-        for (String product : products) {
-            lowerCaseProducts.add(product.toLowerCase());
-        }
-        return lowerCaseProducts;
+        return products.stream()
+                .map(String::toLowerCase)
+                .collect(Collectors.toList());
     }
 }
