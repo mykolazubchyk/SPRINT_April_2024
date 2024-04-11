@@ -28,21 +28,23 @@ public class SizeFilteringTest extends BaseTest {
         womanPage.getFilterFragment().waitUntilSpinnerDisappear();
         womanPage.getFilterFragment().getSize("XXS").click();
         womanPage.getFilterFragment().waitUntilSpinnerDisappear();
+
         String productName = itemCatalogFragment.getListOfAllItems().getLast().getText().toUpperCase();
+
         itemCatalogFragment.getListOfAllItems().getLast().click();
 
         softAssert.assertTrue(productName.contains(productPage.getProductName().getText()),
-                "Product name does not match the selected one");
+                     "Product name does not match the selected one");
         softAssert.assertTrue(productPage.getProductImage().isDisplayed(),
-                "Product image is not displayed");
+                     "Product image is not displayed");
         softAssert.assertTrue(productPage.getProductName().isDisplayed(),
-                "Product name is not displayed");
+                     "Product name is not displayed");
         softAssert.assertTrue(productPage.getProductContent().isDisplayed(),
-                "Product content is not displayed");
+                     "Product content is not displayed");
 
         filterFragment.getCustomSizeDropdownButton();
 
         softAssert.assertTrue(filterFragment.getListOfAllItemSizes().contains("XXS"),
-                "No product in the right size");
+                     "No product in the right size");
     }
 }

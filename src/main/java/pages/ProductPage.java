@@ -11,7 +11,7 @@ public class ProductPage extends BasePage {
     }
 
     private static final String PRODUCT_IMAGE = "//*[@class='product-template-container section-1']";
-    private static final String PRODUCT_NAME = "//*[@class='product-info-js']";       //id("product-info-container");
+    private static final String PRODUCT_NAME = "//*[@class='product-info-js']";
     private static final String PRODUCT_CONTENT = id("product-content-container");
 
     public WebElement getProductImage() {

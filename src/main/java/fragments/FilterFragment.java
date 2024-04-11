@@ -18,8 +18,8 @@ public class FilterFragment extends BasePage {
     private static final String CATEGORY = "//div[@class='filter-options']//span[normalize-space(text())='%s']";
     private static final String PRODUCT_TYPE = "//span[normalize-space(text())='%s']";
     private static final String SIZE = "//button[normalize-space(text())='%s']";
-    private static final String SIZE_FIT_DROPDOWN_CONTENT = "//div[@class='product-content-form-size-step-content product-content-form-step-content step-content']";
-    private static final String LIST_OF_ITEM_SIZES = "//span[@class='primary-label']";  //"//*[starts-with(@class,'dropdown-item ')]";
+    private static final String SIZE_FIT_DROPDOWN_CONTENT = "//div[contains(@class,'product-content-form-size-step-c')]";
+    private static final String LIST_OF_ITEM_SIZES = "//span[@class='primary-label']";
 
     public void chooseCategory(String category) {
         waitClickabilityOfElement(String.format(CATEGORY,category)).click();
