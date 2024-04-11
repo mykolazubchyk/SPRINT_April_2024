@@ -12,6 +12,7 @@ public class HeaderFragment extends BasePage {
     private static final String SEARCH_FIELD = "//*[@name='searchTerm']";
     private static final String CLEAR_BUTTON_SEARCH_FIELD = "//*[@ class='topnav-clear-input']";
     private static final String CATEGORY_DROPDOWN = "//a[normalize-space(text())='%s']";
+    private static final String SELECT_VANS_PREMIUM_PAGE = "//*[contains(@class, 'l1category') and contains(@class, 'section')]";
 
     public HeaderFragment(WebDriver driver) {
         super(driver);
