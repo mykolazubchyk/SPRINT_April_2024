@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pages.GiftCardsPage;
 
 public class GiftCardsFunctionalityTest extends BaseTest {
+
     private static GiftCardsPage giftCardsPage;
     private static HeaderFragment headerFragment;
 
@@ -18,18 +19,23 @@ public class GiftCardsFunctionalityTest extends BaseTest {
     @Test(description = "SPRIN-60: Functionality Gift Cards page")
     public void testGiftCardsFunctionality() {
         headerFragment.getToGiftCardsButton().click();
+
         softAssert.assertEquals(driver.getCurrentUrl(), giftCardsPage.getGiftCardUrl(),
                 "The user was not redirected to the gift cards page");
 
         giftCardsPage.getToBuyGiftCardsButton().click();
+
         softAssert.assertEquals(driver.getCurrentUrl(), giftCardsPage.getBuyGiftCardsUrl(),
-                "The website was not redirects to the appropriate page");
+                "The website was not redirected to the appropriate page");
 
         driver.navigate().back();
+
         softAssert.assertEquals(driver.getCurrentUrl(), giftCardsPage.getGiftCardUrl(),
                 "The user was not redirected back to the gift cards page");
 
         giftCardsPage.getToCheckBalanceButton().click();
-        softAssert.assertTrue(giftCardsPage.getGiftCardNumberInput().isDisplayed());
+
+        softAssert.assertTrue(giftCardsPage.getGiftCardNumberInput().isDisplayed(),
+                "Gift card number input field is not displayed after clicking the 'Check Balance' button.");
     }
 }

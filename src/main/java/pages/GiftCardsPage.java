@@ -47,12 +47,10 @@ public class GiftCardsPage extends BasePage {
     }
 
     public WebElement getToBuyGiftCardsButton() {
-
         return waitClickabilityOfElement(BUY_GIFT_CARD_BUTTON);
     }
 
     public WebElement getToCheckBalanceButton() {
-
         return waitClickabilityOfElement(CHECK_BALANCE_BUTTON);
     }
 
