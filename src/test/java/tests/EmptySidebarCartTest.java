@@ -4,7 +4,6 @@ import fragments.HeaderFragment;
 import fragments.SidebarCartFragment;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 public class EmptySidebarCartTest extends BaseTest {
 
@@ -12,7 +11,7 @@ public class EmptySidebarCartTest extends BaseTest {
     public static SidebarCartFragment sidebarCartFragment;
 
     @BeforeMethod
-    public void beforeTest() {
+    public void initTest() {
         headerFragment = new HeaderFragment(driver);
         sidebarCartFragment = new SidebarCartFragment(driver);
     }

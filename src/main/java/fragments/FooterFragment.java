@@ -1,7 +1,6 @@
 package fragments;
 
 import common.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -16,6 +15,11 @@ public class FooterFragment extends BasePage {
     private static final String ACCEPT_PRIVACY_POLICY_CHECKBOX = id("newsletterCheckField");
     private static final String PRIVACY_POLICY_TEXT = "//*[@class='text-wrapper']";
     private static final String PRIVACY_POLICY_LINK = PRIVACY_POLICY_TEXT + "/a";
+    private static final String TWITTER_ICON = "//a[@href='https://twitter.com/vans_europe']";
+    private static final String FACEBOOK_ICON = "//a[@href='https://www.facebook.com/VansEurope']";
+    private static final String INSTAGRAM_ICON = "//a[@href='https://www.instagram.com/vans_europe/']";
+    private static final String YOUTUBE_ICON = "//a[@href='https://www.youtube.com/user/VansShoes66']";
+    private static final String FOLLOW_US = id("socialLinksFooterBox");
 
     public FooterFragment(WebDriver driver) {
         super(driver);
@@ -52,6 +56,24 @@ public class FooterFragment extends BasePage {
     public WebElement getPrivacyPolicyLink() {
         return waitVisibilityOfElement(PRIVACY_POLICY_LINK);
     }
+
+    public void goToTwitterPage() {
+        waitClickabilityOfElement(TWITTER_ICON).click();
+    }
+
+    public void goToFacebookPage() {
+        waitClickabilityOfElement(FACEBOOK_ICON).click();
+    }
+
+    public void goToInstagramPage() {
+        waitClickabilityOfElement(INSTAGRAM_ICON).click();
+    }
+
+    public void goToYoutubeChannel() {
+        waitClickabilityOfElement(YOUTUBE_ICON).click();
+    }
+
+    public WebElement getFollowUsSection() {
+        return waitPresenceOfElement(FOLLOW_US);
+    }
 }
-
-
