@@ -10,7 +10,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -114,5 +113,13 @@ public class CommonActions extends BasePage {
 
     public static void goToPreviousPage(WebDriver driver) {
         driver.navigate().back();
+    }
+
+    public static List<String> convertListToLowerCase(List<String> products) {
+        List<String> lowerCaseProducts = new ArrayList<>();
+        for (String product : products) {
+            lowerCaseProducts.add(product.toLowerCase());
+        }
+        return lowerCaseProducts;
     }
 }

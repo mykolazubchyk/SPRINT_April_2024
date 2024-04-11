@@ -10,15 +10,14 @@ import pages.productPages.UltraRangePage;
 
 import java.util.List;
 
-import static common.CommonActions.goToPreviousPage;
-import static common.CommonActions.scrollToElement;
+import static common.CommonActions.*;
 
 public class EventBannersTest extends BaseTest {
 
-    public static Homepage homepage;
-    public static UltraRangePage ultraRangePage;
-    public static BmxCollectionPage bmxCollectionPage;
-    public static TheAvePage theAvePage;
+    private static Homepage homepage;
+    private static UltraRangePage ultraRangePage;
+    private static BmxCollectionPage bmxCollectionPage;
+    private static TheAvePage theAvePage;
 
     @BeforeMethod
     public void initTest() {
@@ -29,8 +28,8 @@ public class EventBannersTest extends BaseTest {
     }
 
     @Issue("SPRIN-124")
-    @Test(description = "Transfer to event banners and checking their content")
-    public void eventBannersContent() {
+    @Test(description = "SPRIN-19: Transfer to event banners and checking their content")
+    public void testEventBannersContent() {
         scrollToElement(driver, homepage.getFirstEventBanner());
 
         softAssert.assertTrue(homepage.getFirstEventBanner().isDisplayed(), "The UltraRange banner is not displayed on the page.");
@@ -39,47 +38,43 @@ public class EventBannersTest extends BaseTest {
 
         homepage.getFirstEventBanner().click();
 
-        String ultraRangeTitleText = ultraRangePage.getProductHeaderFragment().getProductTitleText();
-        List<String> ultraRangeProducts = ultraRangePage.getItemCatalogFragment().getListOfAllItemsName();
+        String titleText = ultraRangePage.getProductHeaderFragment().getProductTitleText();
+        List<String> productList = ultraRangePage.getItemCatalogFragment().getListOfAllItemsName();
 
-        softAssert.assertTrue(ultraRangeTitleText.contains("ULTRARANGE"), "The expected title is different from the actual one");
+        softAssert.assertTrue(titleText.contains("ULTRARANGE"), "The expected title is different from the actual one");
 
-        convertToLowerCase(ultraRangeProducts);
+        productList = convertListToLowerCase(productList);
 
-        for (String product : ultraRangeProducts) {
+        for (String product : productList) {
             softAssert.assertTrue(product.contains("ultrarange"), "Product does not contain 'ultrarange': " + product);
         }
 
         goToPreviousPage(driver);
         homepage.getSecondEventBanner().click();
 
-        String theAveTitleText = theAvePage.getProductHeaderFragment().getProductTitleText();
-        List<String> theAveProducts = theAvePage.getItemCatalogFragment().getListOfAllItemsName();
+        titleText = theAvePage.getProductHeaderFragment().getProductTitleText();
+        productList = theAvePage.getItemCatalogFragment().getListOfAllItemsName();
 
-        softAssert.assertTrue(theAveTitleText.contains("AVE 2.0"), "The expected title is different from the actual one");
+        softAssert.assertTrue(titleText.contains("AVE 2.0"), "The expected title is different from the actual one");
 
-        convertToLowerCase(theAveProducts);
+        productList = convertListToLowerCase(productList);
 
-        for (String product : theAveProducts) {
+        for (String product : productList) {
             softAssert.assertTrue(product.contains("ave"), "Product does not contain 'ave': " + product);
         }
 
         goToPreviousPage(driver);
         homepage.getThirdEventBanner().click();
 
-        String bmxCollectionTitleText = bmxCollectionPage.getProductHeaderFragment().getProductTitleText();
-        List<String> bmxCollectionProducts = bmxCollectionPage.getItemCatalogFragment().getListOfAllItemsName();
+        titleText = bmxCollectionPage.getProductHeaderFragment().getProductTitleText();
+        productList = bmxCollectionPage.getItemCatalogFragment().getListOfAllItemsName();
 
-        softAssert.assertTrue(bmxCollectionTitleText.contains("VANS BMX COLLECTION"), "The expected title is different from the actual one");
+        softAssert.assertTrue(titleText.contains("VANS BMX COLLECTION"), "The expected title is different from the actual one");
 
-        convertToLowerCase(bmxCollectionProducts);
+        productList = convertListToLowerCase(productList);
 
-        for (String product : bmxCollectionProducts) {
+        for (String product : productList) {
             softAssert.assertTrue(product.contains("bmx") || product.contains("lewis"), "Product does not contain 'bmx': " + product);
         }
-    }
-
-    public static void convertToLowerCase(List<String> products) {
-        products.replaceAll(String::toLowerCase);
     }
 }
