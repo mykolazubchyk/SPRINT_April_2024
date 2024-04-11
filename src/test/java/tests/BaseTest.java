@@ -39,7 +39,7 @@ public abstract class BaseTest {
 
     @AfterMethod
     public void afterMethod() {
-        driver.quit();
+        //driver.quit();
         softAssert.assertAll();
     }
 

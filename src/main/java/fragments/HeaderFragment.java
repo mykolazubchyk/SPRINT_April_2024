@@ -48,4 +48,8 @@ public class HeaderFragment extends BasePage {
     public void chooseCategoryDropdown(String category) {
         waitClickabilityOfElement(String.format(CATEGORY_DROPDOWN, category)).click();
     }
+
+    public WebElement getCategoryAccordion(String category){
+        return waitVisibilityOfElement(String.format(CATEGORY_DROPDOWN, category));
+    }
 }
