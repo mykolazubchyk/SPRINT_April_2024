@@ -38,8 +38,8 @@ public class FilterFragment extends BasePage {
         waitUntilElementDisappear(LOADING_SPINNER);
     }
 
-    public void getCustomSizeDropdownButton() {
-        waitClickabilityOfElement(SIZE_FIT_DROPDOWN_CONTENT).click();
+    public WebElement getCustomSizeDropdownButton() {
+        return waitClickabilityOfElement(SIZE_FIT_DROPDOWN_CONTENT);
     }
 
     public List<String> getListOfAllItemSizes() {

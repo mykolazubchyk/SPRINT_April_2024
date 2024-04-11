@@ -21,7 +21,7 @@ public class SizeFilteringTest extends BaseTest {
         productPage = new ProductPage(driver);
     }
 
-    @Test(description = "SPRIN-23:Size Filter ")
+    @Test(description = "SPRIN-23: Size Filter")
     public void verifySizeFilter() {
 
         womanPage.getHeaderFragment().chooseCategoryDropdown("Women");
@@ -42,7 +42,7 @@ public class SizeFilteringTest extends BaseTest {
         softAssert.assertTrue(productPage.getProductContent().isDisplayed(),
                      "Product content is not displayed");
 
-        filterFragment.getCustomSizeDropdownButton();
+        filterFragment.getCustomSizeDropdownButton().click();
 
         softAssert.assertTrue(filterFragment.getListOfAllItemSizes().contains("XXS"),
                      "No product in the right size");
