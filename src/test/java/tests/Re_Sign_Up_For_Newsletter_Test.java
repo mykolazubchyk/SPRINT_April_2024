@@ -13,8 +13,8 @@ public class Re_Sign_Up_For_Newsletter_Test extends BaseTest{
     @BeforeMethod
     public void InitTest(){
         footerFragment = new FooterFragment(driver);
-
     }
+
     @Test(description = "SPRIN-8_Re_Sign_Up_For_Newsletter")
     public void ReSignUpForNewsletter(){
         footerFragment.enterExistedEmail(EMAIL_FOR_RE_SIGN_UP);
@@ -22,7 +22,5 @@ public class Re_Sign_Up_For_Newsletter_Test extends BaseTest{
         footerFragment.submitForNewsletters();
         String getErrorMessage = footerFragment.getMessageError();
         softAssert.assertEquals(getErrorMessage,GET_ERROR_MESSAGE,"This email address already receives our newsletters");
-
     }
-
 }
