@@ -15,7 +15,7 @@ public class Homepage extends BasePage {
     }
 
     public WebElement getFirstEventBanner() {
-       return waitVisibilityOfElement(FIRST_EVENT_BANNER);
+        return waitVisibilityOfElement(FIRST_EVENT_BANNER);
     }
 
     public WebElement getSecondEventBanner() {
