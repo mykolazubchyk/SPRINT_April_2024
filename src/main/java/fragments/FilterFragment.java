@@ -17,9 +17,7 @@ public class FilterFragment extends BasePage {
     private static final String LOADING_SPINNER = "//div[@class='activity-indicator']";
     private static final String CATEGORY = "//div[@class='filter-options']//span[normalize-space(text())='%s']";
     private static final String PRODUCT_TYPE = "//span[normalize-space(text())='%s']";
-    private static final String SIZE = "//button[normalize-space(text())='%s']";
-    private static final String SIZE_FIT_DROPDOWN_CONTENT = "//div[contains(@class,'product-content-form-size-step-c')]";
-    private static final String LIST_OF_ITEM_SIZES = "//span[@class='primary-label']";
+    private static final String SIZE_BUTTON = "//button[normalize-space(text())='%s']";
 
     public void chooseCategory(String category) {
         waitClickabilityOfElement(String.format(CATEGORY,category)).click();
@@ -29,21 +27,13 @@ public class FilterFragment extends BasePage {
         waitClickabilityOfElement(String.format(PRODUCT_TYPE,productType)).click();
     }
 
-    public WebElement getSize(String size) {
-        return waitClickabilityOfElement(String.format(SIZE, size));
+    public WebElement getSizeButton(String size) {
+        return waitClickabilityOfElement(String.format(SIZE_BUTTON, size));
     }
 
     public void waitUntilSpinnerDisappear() {
         waitVisibilityOfElement(LOADING_SPINNER);
         waitUntilElementDisappear(LOADING_SPINNER);
-    }
-
-    public WebElement getCustomSizeDropdownButton() {
-        return waitClickabilityOfElement(SIZE_FIT_DROPDOWN_CONTENT);
-    }
-
-    public List<String> getListOfAllItemSizes() {
-        return getListOfString(waitPresenceOfElements(LIST_OF_ITEM_SIZES));
     }
 }
 

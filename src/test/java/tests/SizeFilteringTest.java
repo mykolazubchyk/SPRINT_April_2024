@@ -1,6 +1,5 @@
 package tests;
 
-import fragments.FilterFragment;
 import fragments.ItemCatalogFragment;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,14 +9,13 @@ import pages.productPages.WomanPage;
 public class SizeFilteringTest extends BaseTest {
     private static WomanPage womanPage;
     private static ItemCatalogFragment itemCatalogFragment;
-    private static FilterFragment filterFragment;
+
     private static ProductPage productPage;
 
     @BeforeMethod
     private void initTest(){
         womanPage = new WomanPage(driver);
         itemCatalogFragment = new ItemCatalogFragment(driver);
-        filterFragment = new FilterFragment(driver);
         productPage = new ProductPage(driver);
     }
 
@@ -26,7 +24,7 @@ public class SizeFilteringTest extends BaseTest {
 
         womanPage.getHeaderFragment().chooseCategoryDropdown("Women");
         womanPage.getFilterFragment().waitUntilSpinnerDisappear();
-        womanPage.getFilterFragment().getSize("XXS").click();
+        womanPage.getFilterFragment().getSizeButton("XXS").click();
         womanPage.getFilterFragment().waitUntilSpinnerDisappear();
 
         String productName = itemCatalogFragment.getListOfAllItems().getLast().getText().toUpperCase();
@@ -42,9 +40,9 @@ public class SizeFilteringTest extends BaseTest {
         softAssert.assertTrue(productPage.getProductContent().isDisplayed(),
                      "Product content is not displayed");
 
-        filterFragment.getCustomSizeDropdownButton().click();
+        productPage.getCustomSizeDropdownButton().click();
 
-        softAssert.assertTrue(filterFragment.getListOfAllItemSizes().contains("XXS"),
+        softAssert.assertTrue(productPage.getListOfAllItemSizes().contains("XXS"),
                      "No product in the right size");
     }
 }
