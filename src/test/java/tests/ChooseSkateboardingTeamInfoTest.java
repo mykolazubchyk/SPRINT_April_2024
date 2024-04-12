@@ -6,8 +6,8 @@ import fragments.HeaderFragment;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.SkateboardingPage;
+import pages.productPages.SkateboardersPage;
 
 import java.util.List;
 
@@ -15,11 +15,13 @@ public class ChooseSkateboardingTeamInfoTest extends BaseTest{
 
     private static HeaderFragment headerFragment;
     private static SkateboardingPage skateboardingPage;
+    private static SkateboardersPage skateboardersPage;
 
     @BeforeMethod
     private void initTest() {
         headerFragment = new HeaderFragment(driver);
         skateboardingPage = new SkateboardingPage(driver);
+        skateboardersPage = new SkateboardersPage(driver);
     }
 
     @Test(description = "SPRIN-90: Choose skateboarding team info")
@@ -43,9 +45,11 @@ public class ChooseSkateboardingTeamInfoTest extends BaseTest{
         for (int i = 0; i < teamList.size(); i++) {
             teamList = skateboardingPage.getSkateboardingTeamList();
 
+            String nameS = teamList.get(i).getText();
+
             teamList.get(i).click();
 
-            //softAssert.assertTrue(skateboardingPage.getTitleName().contains(name));
+            softAssert.assertTrue(skateboardersPage.findElementByText(nameS).getText().toLowerCase().contains(nameS));
 
             driver.navigate().back();
         }

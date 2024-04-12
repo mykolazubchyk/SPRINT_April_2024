@@ -12,7 +12,7 @@ public class SkateboardingPage extends BasePage {
     }
 
     private static final String SKATEBOARDING_TEAM_CONTAINER = "//*[@class='team-module']";
-    private static final String TEAM_LIST = "//*[@class='inner-col']";          //"//*[@class='actionsport-track']";
+    private static final String TEAM_LIST = "//*[@class='inner-col']";
 
     public WebElement getSkateboardingTeamContainer() {
         return waitVisibilityOfElement(SKATEBOARDING_TEAM_CONTAINER);
