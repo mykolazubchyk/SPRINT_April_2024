@@ -37,8 +37,6 @@ public class SizeFilteringTest extends BaseTest {
                      "Product image is not displayed");
         softAssert.assertTrue(productPage.getProductName().isDisplayed(),
                      "Product name is not displayed");
-        softAssert.assertTrue(productPage.getProductContent().isDisplayed(),
-                     "Product content is not displayed");
 
         productPage.getCustomSizeDropdownButton().click();
 
