@@ -49,10 +49,5 @@ public class ChooseSkateboardingTeamInfoTest extends BaseTest{
 
             driver.navigate().back();
         }
-
-
-
     }
-
-
 }

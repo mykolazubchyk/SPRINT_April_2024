@@ -1,10 +1,8 @@
 package tests;
 
 import fragments.HeaderFragment;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 import fragments.SignInFragment;
-import org.testng.asserts.SoftAssert;
+import org.testng.annotations.Test;
 
 public class SignInValidationTest extends BaseTest {
 

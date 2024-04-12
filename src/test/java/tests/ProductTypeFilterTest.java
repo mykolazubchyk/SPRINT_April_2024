@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.WomanPage;
+import pages.productPages.WomanPage;
 
 public class ProductTypeFilterTest extends BaseTest {
     private static WomanPage womanPage;
