@@ -24,6 +24,10 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(BASE_WAIT));
     }
 
+    public WebElement findEl(String name) {
+        return wait.until(visibilityOfElementLocated(By.name(name)));
+    }
+
     protected WebElement waitVisibilityOfElement(String locator) {
         try {
             return wait.until(visibilityOfElementLocated(By.xpath(locator)));

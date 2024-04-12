@@ -12,6 +12,7 @@ public class HeaderFragment extends BasePage {
     private static final String SEARCH_FIELD = "//*[@name='searchTerm']";
     private static final String CLEAR_BUTTON_SEARCH_FIELD = "//*[@ class='topnav-clear-input']";
     private static final String CATEGORY_DROPDOWN = "//a[normalize-space(text())='%s']";
+    private static final String ONE_OF_THE_ITEMS_CATEGORY_DROPDOWN = "//div[normalize-space(text())='%s']";
 
     public HeaderFragment(WebDriver driver) {
         super(driver);
@@ -47,5 +48,13 @@ public class HeaderFragment extends BasePage {
 
     public void chooseCategoryDropdown(String category) {
         waitClickabilityOfElement(String.format(CATEGORY_DROPDOWN, category)).click();
+    }
+
+    public WebElement getCategoryDropdown(String category){
+        return waitVisibilityOfElement(String.format(CATEGORY_DROPDOWN, category));
+    }
+
+    public WebElement getOneOfTheItemsCategoryDropdown(String item){
+        return waitVisibilityOfElement(String.format(ONE_OF_THE_ITEMS_CATEGORY_DROPDOWN, item));
     }
 }
