@@ -1,13 +1,12 @@
 package tests;
 
-import common.BasePage;
 import common.CommonActions;
 import fragments.HeaderFragment;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.SkateboardingPage;
-import pages.productPages.SkateboardersPage;
+import pages.productPages.SkateboarderPage;
 
 import java.util.List;
 
@@ -15,13 +14,13 @@ public class ChooseSkateboardingTeamInfoTest extends BaseTest{
 
     private static HeaderFragment headerFragment;
     private static SkateboardingPage skateboardingPage;
-    private static SkateboardersPage skateboardersPage;
+    private static SkateboarderPage skateboarderPage;
 
     @BeforeMethod
     private void initTest() {
         headerFragment = new HeaderFragment(driver);
         skateboardingPage = new SkateboardingPage(driver);
-        skateboardersPage = new SkateboardersPage(driver);
+        skateboarderPage = new SkateboarderPage(driver);
     }
 
     @Test(description = "SPRIN-90: Choose skateboarding team info")
@@ -34,9 +33,9 @@ public class ChooseSkateboardingTeamInfoTest extends BaseTest{
         headerFragment.getOneOfTheItemsCategoryDropdown("Skateboarding").click();
 
         softAssert.assertTrue(skateboardingPage.getSkateboardingTeamContainer().getText().toLowerCase().contains(nameItem),
-                "It's not a skateboarding team");
+                     "It's not a skateboarding team");
         softAssert.assertTrue(skateboardingPage.getSkateboardingTeamContainer().isDisplayed(),
-                "The list of skateboarding teams is not displayed");
+                     "The list of skateboarding teams is not displayed");
 
         CommonActions.scrollToElement(driver, skateboardingPage.getSkateboardingTeamContainer());
 
@@ -45,11 +44,12 @@ public class ChooseSkateboardingTeamInfoTest extends BaseTest{
         for (int i = 0; i < teamList.size(); i++) {
             teamList = skateboardingPage.getSkateboardingTeamList();
 
-            String nameS = teamList.get(i).getText();
+            String nameSkater = teamList.get(i).getText().toLowerCase();
 
             teamList.get(i).click();
 
-            softAssert.assertTrue(skateboardersPage.findElementByText(nameS).getText().toLowerCase().contains(nameS));
+            softAssert.assertTrue(skateboarderPage.getTitle().getText().toLowerCase().contains(nameSkater),
+                         "The page does not match the selected skater");
 
             driver.navigate().back();
         }
