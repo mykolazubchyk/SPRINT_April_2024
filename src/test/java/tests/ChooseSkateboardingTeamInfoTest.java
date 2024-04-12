@@ -1,11 +1,12 @@
 package tests;
 
+import common.BasePage;
 import common.CommonActions;
-import fragments.FooterFragment;
 import fragments.HeaderFragment;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.PrivacyPolicyPage;
+import org.testng.asserts.SoftAssert;
 import pages.SkateboardingPage;
 
 import java.util.List;
@@ -24,23 +25,30 @@ public class ChooseSkateboardingTeamInfoTest extends BaseTest{
     @Test(description = "SPRIN-90: Choose skateboarding team info")
     public void testChooseSkateboardingTeamInfo(){
 
-        String nameCategory = headerFragment.getCategoryAccordion("SKATEBOARDING").getText().toLowerCase();
+        headerFragment.getCategoryDropdown("Action Sports").click();
 
-        headerFragment.getCategoryAccordion("SKATEBOARDING").click();
+        String nameItem = headerFragment.getOneOfTheItemsCategoryDropdown("Skateboarding").getText().toLowerCase();
 
-        softAssert.assertTrue(skateboardingPage.getSkateboardingTeamContainer().getText().toLowerCase().contains(nameCategory),
+        headerFragment.getOneOfTheItemsCategoryDropdown("Skateboarding").click();
+
+        softAssert.assertTrue(skateboardingPage.getSkateboardingTeamContainer().getText().toLowerCase().contains(nameItem),
                 "It's not a skateboarding team");
         softAssert.assertTrue(skateboardingPage.getSkateboardingTeamContainer().isDisplayed(),
                 "The list of skateboarding teams is not displayed");
 
         CommonActions.scrollToElement(driver, skateboardingPage.getSkateboardingTeamContainer());
 
-        String playerName = skateboardingPage.getSkateboardingTeamList().get(27).getText().toLowerCase();
+        List<WebElement> teamList = skateboardingPage.getSkateboardingTeamList();
 
-        skateboardingPage.getSkateboardingTeamList().get(27).click();
+        for (int i = 0; i < teamList.size(); i++) {
+            teamList = skateboardingPage.getSkateboardingTeamList();
 
+            teamList.get(i).click();
 
+            //softAssert.assertTrue(skateboardingPage.getTitleName().contains(name));
 
+            driver.navigate().back();
+        }
 
 
 
