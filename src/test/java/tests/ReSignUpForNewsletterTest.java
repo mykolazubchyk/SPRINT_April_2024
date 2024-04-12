@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import static credentials.Data.EMAIL_FOR_RE_SIGN_UP;
 
-public class Re_Sign_Up_For_Newsletter_Test extends BaseTest{
+public class ReSignUpForNewsletterTest extends BaseTest{
     private static FooterFragment footerFragment;
     private static final String GET_ERROR_MESSAGE = "This email address already receives our newsletters";
 
